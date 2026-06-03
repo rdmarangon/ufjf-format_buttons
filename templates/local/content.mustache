@@ -1,0 +1,88 @@
+{{!
+  Include the core content template.
+  This is the top template for a course.
+}}
+{{< core_courseformat/local/content }}
+{{!
+    Add any general structure blocks override here.
+}}
+
+{{! Mandatory the content/section block. }}
+    {{$ core_courseformat/local/content/section }}
+        {{^section}}
+            {{#all_sections}}
+                {{#body}}
+                    <b class="text-black">{{{text_section}}}</b>
+                    {{#hidden_teacher_selected}}
+                        <a href="{{{url}}}" class="btn btn-primary font-weight-bold font-italic border-0"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: {{bgcolor_selected}}; margin: 5px;
+                                   font-size: 1.5em; text-decoration: none; color: {{fontcolor_selected}};">
+                            {{namesection}}
+                        </a>
+                    {{/hidden_teacher_selected}}
+                    {{#hidden_teacher_normal}}
+                        <a href="{{{url}}}" class="btn font-weight-bold font-italic"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: transparent;
+                                   border: 2px solid #dee2e6 !important; color: #adb5bd; margin: 5px; font-size: 1.5em; text-decoration: none;">
+                            {{namesection}}
+                        </a>
+                    {{/hidden_teacher_normal}}
+                    {{#hidden_student}}
+                        <span class="btn font-weight-bold"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: transparent;
+                                   border: 2px solid #dee2e6 !important; color: #adb5bd; margin: 5px; font-size: 1.5em; cursor: default;">
+                            {{namesection}}
+                        </span>
+                    {{/hidden_student}}
+                    {{#visible_selected}}
+                        <a href="{{{url}}}" class="btn btn-primary font-weight-bold border-0"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: {{bgcolor_selected}}; margin: 5px;
+                                   font-size: 1.5em; text-decoration: none; color: {{fontcolor_selected}};">
+                            {{namesection}}
+                        </a>
+                    {{/visible_selected}}
+                    {{#visible_current}}
+                        <a href="{{{url}}}" class="btn btn-primary font-weight-bold border-0"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: {{colorcurrent}}; margin: 5px;
+                                   font-size: 1.5em; text-decoration: none; color: #ffffff;">
+                            {{namesection}}
+                        </a>
+                    {{/visible_current}}
+                    {{#visible_normal}}
+                        <a href="{{{url}}}" class="btn btn-primary font-weight-bold border-0"
+                           style="display: inline-flex; align-items: center; justify-content: center; min-width: 50px;
+                                   min-height: 50px; border-radius: {{{form_btn}}}; background-color: {{bgcolor}}; margin: 5px;
+                                   font-size: 1.5em; text-decoration: none; color: {{colorfont}};">
+                            {{namesection}}
+                        </a>
+                    {{/visible_normal}}
+                {{/body}}
+            {{/all_sections}}
+        {{/section}}
+        {{> format_buttons/local/content/section }}
+
+
+        <div class="section_addition">
+            {{{ addsectioncontrol }}}
+        </div>
+
+    {{/ core_courseformat/local/content/section }}
+{{/ core_courseformat/local/content }}
+
+{{#sectionselector}}
+    {{$ core_courseformat/local/content/sectionselector }}
+        {{> core_courseformat/local/content/sectionselector }}
+    {{/ core_courseformat/local/content/sectionselector }}
+{{/sectionselector}}
+
+{{#bulkedittools}}
+    {{$ core_courseformat/local/content/bulkedittools}}
+    {{/ core_courseformat/local/content/bulkedittools}}
+
+    <a href="{{{url_add_section}}}" class="btn btn-primary">{{#str}} addsections, format_buttons {{/str}}</a>
+{{/bulkedittools}}
