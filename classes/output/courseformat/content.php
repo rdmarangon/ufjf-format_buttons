@@ -167,6 +167,8 @@ class content extends content_base
 
         $array_sections = $this->agruping_sections($array_sections, $course);
 
+        $all_groups = $this->group_sections_for_display($array_sections);
+
         switch ($course->selectform) {
             case 'rounded':
                 $form_btn = "50%";
@@ -221,6 +223,7 @@ class content extends content_base
             'title' => $format->page_title(),
             'sections' => $sections,
             'all_sections' => $array_sections,
+            'all_groups' => $all_groups,
             'format' => $format->get_format(),
             'sectionclasses' => '',
             'bgcolor' => $course->bgcolor,
@@ -679,6 +682,48 @@ class content extends content_base
         }
 
         return $array_sections;
+    }
+
+    /**
+     * Transforms the flat sections array into groups for aligned grid rendering.
+     * Each group has a label (from text_section) and an array of sections.
+     *
+     * @param array $array_sections
+     * @return array
+     */
+    public function group_sections_for_display(array $array_sections): array
+    {
+        $groups = [];
+        $current_group = null;
+
+        foreach ($array_sections as $section) {
+            if (empty($section->body)) {
+                continue;
+            }
+
+            if (!empty($section->text_section)) {
+                if ($current_group !== null) {
+                    $groups[] = $current_group;
+                }
+                $current_group = new \stdClass();
+                $current_group->has_label = true;
+                $current_group->label = $section->text_section;
+                $current_group->sections = [];
+            } else if ($current_group === null) {
+                $current_group = new \stdClass();
+                $current_group->has_label = false;
+                $current_group->label = '';
+                $current_group->sections = [];
+            }
+
+            $current_group->sections[] = $section;
+        }
+
+        if ($current_group !== null) {
+            $groups[] = $current_group;
+        }
+
+        return $groups;
     }
 
     /**
