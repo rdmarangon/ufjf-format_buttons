@@ -196,6 +196,14 @@ class format_buttons extends core_courseformat\base
             'default' => get_config('format_buttons', 'fontcolor_selected')
         );
 
+        $courseformatoptionsedit['colorcurrent'] = array(
+            'label' => get_string('colorcurrent', 'format_buttons'),
+            'help' => 'colorcurrent',
+            'help_component' => 'format_buttons',
+            'element_type' => 'text',
+            'default' => ''
+        );
+
         $opt = get_config('format_buttons', 'selectoption');
         $courseformatoptionsedit['selectoption'] = array(
             'label' => get_string('selectoption', 'format_buttons'),

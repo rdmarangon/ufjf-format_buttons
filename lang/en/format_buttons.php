@@ -95,3 +95,5 @@ $string['color_gruping'] = 'Color for the buttons of the group {$a}';
 $string['title_gruping_help'] = 'Text is placed before the group';
 $string['sections_gruping'] = 'Number of sections for the group {$a}';
 $string['sections_gruping_help']='Number of sections that group contain';
+$string['colorcurrent'] = 'Highlighted section button color';
+$string['colorcurrent_help'] = 'The current section is the one marked as highlighted (via the "Highlight" menu option). Enter a hex color value. Example: #fab747. Leave blank to use the default color (#115898).';

@@ -95,3 +95,5 @@ $string['color_gruping'] = 'Cor para os botões do grupo {$a}';
 $string['title_gruping_help'] = 'O texto é exibido antes do grupo';
 $string['sections_gruping'] = 'Número de seções para o grupo {$a}';
 $string['sections_gruping_help'] = 'Número de seções que o grupo contém';
+$string['colorcurrent'] = 'Cor do botão da seção atual';
+$string['colorcurrent_help'] = 'A seção atual é a seção marcada com destaque (via menu "Destacar"). Defina uma cor em hexadecimal. Exemplo: #fab747. Se deixar em branco, usa a cor padrão (#115898).';
