@@ -61,3 +61,23 @@
     flex-wrap: wrap;
     align-items: center;
 }
+
+/*
+ * Alternative layout ("Separar grupos em linhas" = Não): all groups flow
+ * together, centered, on the same line, wrapping only when there is no
+ * room left. Label columns are no longer aligned across groups, since
+ * there is no longer one grid row per group.
+ */
+.format-buttons-groups-container.format-buttons-groups-container--flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.format-buttons-groups-container--flow .format-buttons-label-cell {
+    padding-left: 20px;
+}
+
+.format-buttons-groups-container--flow .format-buttons-label-cell:first-child {
+    padding-left: 0;
+}

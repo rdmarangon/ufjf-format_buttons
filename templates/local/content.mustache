@@ -10,7 +10,7 @@
 {{! Mandatory the content/section block. }}
     {{$ core_courseformat/local/content/section }}
         {{^section}}
-            <div class="format-buttons-groups-container">
+            <div class="format-buttons-groups-container{{^inlinesections}} format-buttons-groups-container--flow{{/inlinesections}}">
                 {{#all_groups}}
                     <div class="format-buttons-label-cell">
                         {{#has_label}}<span class="format-buttons-group-label">{{{label}}}</span>{{/has_label}}

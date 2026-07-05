@@ -263,6 +263,20 @@ class format_buttons extends core_courseformat\base
             )
         );
 
+        $courseformatoptionsedit['inlinesections'] = array(
+            'label' => get_string('inlinesections', 'format_buttons'),
+            'help' => 'inlinesections',
+            'help_component' => 'format_buttons',
+            'element_type' => 'select',
+            'default' => '1',
+            'element_attributes' => array(
+                array(
+                    '1' => get_string('yes'),
+                    '0' => get_string('no'),
+                )
+            )
+        );
+
         $max_groups = get_config('format_buttons', 'max_groups');
         if ($max_groups != 0) {
             $max_sections = $this->get_max_sections();

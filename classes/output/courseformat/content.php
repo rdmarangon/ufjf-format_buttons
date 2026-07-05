@@ -232,6 +232,7 @@ class content extends content_base
             'fontcolor_selected' => $course->fontcolor_selected,
             'form_btn' => $form_btn,
             'colorcurrent' => $colorcurrent,
+            'inlinesections' => (bool)((int)($course->inlinesections ?? 1)),
         ];
 
         if ($format->show_editor()) {
